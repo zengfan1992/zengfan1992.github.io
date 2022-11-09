@@ -1,4 +1,4 @@
-minikube start --insecure-registry host.minikube.internal:8181
+minikube start --insecure-registry 192.168.56.1:8181 --registry-mirror http://192.168.56.1:8181
 
 minikube config set kubernetes-version 1.23.12
 
