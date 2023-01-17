@@ -8,4 +8,7 @@ minikube config set driver qemu2
 https://xzz2wi11.mirror.aliyuncs.com
 git config --global user.email "zengfan1992@hotmail.com"
 git config --global user.name "zengfan"
+"C:\Program Files\Oracle\VirtualBox\VboxManage" startvm ubuntu --type headless
+date --set="$(ssh manager date)"
+ssh ubuntu $(date --set "$(date)")
 ```
