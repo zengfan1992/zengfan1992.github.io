@@ -11,4 +11,5 @@ git config --global user.name "zengfan1992"
 /usr/lib/virtualbox/VBoxManage startvm ubuntu --type headless
 "C:\Program Files\Oracle\VirtualBox\VboxManage" startvm ubuntu --type headless
 ssh ubuntu sudo date -s $(date +%FT%T)
+sed -i "s@http://repo.openeuler.org@http://repo.huaweicloud.com/openeuler@g" /etc/apt/sources.list
 ```
