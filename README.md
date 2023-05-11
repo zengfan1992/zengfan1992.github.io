@@ -12,4 +12,8 @@ git config --global user.name "zengfan1992"
 "C:\Program Files\Oracle\VirtualBox\VboxManage" startvm ubuntu --type headless
 ssh ubuntu sudo date -s $(date +%FT%T)
 sed -i "s@http://repo.openeuler.org@http://repo.huaweicloud.com/openeuler@g" /etc/apt/sources.list
+qemu-img convert -p -f vmdk -O qcow2 centos6.9.vmdk centos6.9.qcow2
+qemu-img resize bionic-server-cloudimg-amd64.img 50G
+growpart /dev/vda 1
+resize2fs /dev/vda1
 ```
