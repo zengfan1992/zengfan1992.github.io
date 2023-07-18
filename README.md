@@ -17,3 +17,17 @@ qemu-img resize bionic-server-cloudimg-amd64.img 50G
 growpart /dev/vda 1
 resize2fs /dev/vda1
 ```
+```bash
+authcommunity execute,log,net public
+traphandle .1.3.6.1.4.1.2021.251.1 /home/debian/test.pl
+
+#!/usr/bin/perl
+use strict;
+my $file="test.log";
+open(HANDOUT,">>/home/debian/$file");
+while(<STDIN>)
+{
+    print HANDOUT "$_";
+}
+
+sudo snmptrap -v 2c -c public localhost "hostname" .1.3.6.1.4.1.2021.251.1 sysLocation.0 s "this is test"
