@@ -31,3 +31,4 @@ while(<STDIN>)
 }
 
 sudo snmptrap -v 2c -c public localhost "hostname" .1.3.6.1.4.1.2021.251.1 sysLocation.0 s "this is test"
+```
