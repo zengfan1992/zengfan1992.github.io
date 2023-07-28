@@ -18,17 +18,29 @@ growpart /dev/vda 1
 resize2fs /dev/vda1
 ```
 ```bash
-authcommunity execute,log,net public
-traphandle .1.3.6.1.4.1.2021.251.1 /home/debian/test.pl
+sudo apt-get install snmpd snmp snmp-mibs-downloader snmptrapd
+sudo systemctl disable snmptrapd.socket
+sudo systemctl disable snmptrapd.service
+sudo snmptrapd -fd -Lo | grep SNMP
+sudo snmptrap -v 2c -c public localhost "" .1.3.6.1.4.1.2021.251.1 sysLocation.0 s "this is test"
+snmpset -v2c -c public -On localhost system.sysName.0 s linux
 
-#!/usr/bin/perl
-use strict;
-my $file="test.log";
-open(HANDOUT,">>/home/debian/$file");
-while(<STDIN>)
-{
-    print HANDOUT "$_";
-}
-
-sudo snmptrap -v 2c -c public localhost "hostname" .1.3.6.1.4.1.2021.251.1 sysLocation.0 s "this is test"
+authCommunity execute,log,net public
+traphandle default /etc/snmp/traphandle.sh
+ #!/bin/sh
+ read host
+ read ip
+ vars=
+ 
+ while read oid val
+ do
+   if [ "$vars" = "" ]
+   then
+     vars="$oid = $val"
+   else
+     vars="$vars, $oid = $val"
+   fi
+ done
+ 
+ echo trap: $1 $host $ip $vars
 ```
