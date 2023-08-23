@@ -44,3 +44,9 @@ traphandle default /etc/snmp/traphandle.sh
  
  echo trap: $1 $host $ip $vars
 ```
+```bash
+sudo apt-get install build-essential
+sudo apt-get install xorg-dev
+sudo apt-get install libgtk2.0-dev
+./configure --enable-x86-64 --enable-debugger
+```
