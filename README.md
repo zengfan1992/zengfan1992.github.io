@@ -7,7 +7,7 @@ git config --global user.email "zengfan1992@hotmail.com"
 git config --global user.name "zengfan1992"
 
 sudo mkdir shared
-sudo mount -t vboxsf share shared
+sudo mount -t vboxsf share shared -o uid=debian -o gid=debian
 ```
 ```bash
 sudo apt-get install snmpd snmp snmp-mibs-downloader snmptrapd
