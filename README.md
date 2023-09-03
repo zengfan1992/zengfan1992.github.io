@@ -1,6 +1,7 @@
 ```bash
 minikube config set cpus 8
 minikube config set memory 8196
+minikube config set kubernetes-version 1.23.12
 https://xzz2wi11.mirror.aliyuncs.com
 
 git config --global user.email "zengfan1992@hotmail.com"
