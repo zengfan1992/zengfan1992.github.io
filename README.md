@@ -6,6 +6,8 @@ https://xzz2wi11.mirror.aliyuncs.com
 
 git config --global user.email "zengfan1992@hotmail.com"
 git config --global user.name "zengfan1992"
+git config --global core.editor "vim"
+git config --global http.proxy 'http://192.168.43.1:1080'
 
 sudo mkdir shared
 sudo mount -t vboxsf share /home/debian/shared -o uid=debian -o gid=debian
