@@ -12,6 +12,7 @@ git config --global http.proxy 'http://192.168.43.1:1080'
 sudo mkdir shared
 sudo mount -t vboxsf share /home/debian/shared -o uid=debian -o gid=debian
 sudo timedatectl set-timezone Pacific/Galapagos
+sudo timedatectl set-timezone America/Mexico_City
 ```
 ```bash
 sudo apt-get install snmpd snmp snmp-mibs-downloader snmptrapd
