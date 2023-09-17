@@ -9,6 +9,8 @@ git config --global user.name "zengfan1992"
 git config --global core.editor "vim"
 git config --global http.proxy 'http://192.168.43.1:1080'
 
+ssh debian sudo date -s $(date +%FT%T)
+
 sudo mkdir shared
 sudo mount -t vboxsf share /home/debian/shared -o uid=debian -o gid=debian
 sudo timedatectl set-timezone Pacific/Galapagos
