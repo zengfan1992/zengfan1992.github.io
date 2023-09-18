@@ -9,6 +9,8 @@ git config --global user.name "zengfan1992"
 git config --global core.editor "vim"
 git config --global http.proxy 'http://192.168.43.1:1080'
 
+\HKEY_USERS\.DEFAULT\Control Panel\Desktop AutoEndTasks StringValue 1
+
 ssh debian sudo date -s $(date +%FT%T)
 
 sudo mkdir shared
