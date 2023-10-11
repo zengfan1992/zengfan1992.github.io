@@ -1,4 +1,6 @@
 ```bash
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
 minikube config set cpus 8
 minikube config set memory 8196
 minikube config set kubernetes-version 1.23.12
