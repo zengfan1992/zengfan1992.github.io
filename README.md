@@ -18,6 +18,8 @@ sudo vmhgfs-fuse -o allow_other .host:/shared shared
 
 sudo timedatectl set-timezone Pacific/Galapagos
 sudo timedatectl set-timezone America/Mexico_City
+
+eval "$('/home/zengfan/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 ```
 ```bash
 sudo apt-get install snmpd snmp snmp-mibs-downloader snmptrapd
