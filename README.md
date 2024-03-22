@@ -70,3 +70,6 @@ for file in files:
 # 按任意键结束
 input('按任意键结束')
 ```
+```bash
+docker run -d -p 9092:9092 -e LISTENERS=PLAINTEXT://0.0.0.0:9092 apache/kafka
+```
