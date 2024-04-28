@@ -20,6 +20,8 @@ sudo timedatectl set-timezone Pacific/Galapagos
 sudo timedatectl set-timezone America/Mexico_City
 
 eval "$('/home/zengfan/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+
+echo 'Acquire::http::Proxy "http://192.168.43.1:1080";' > /etc/apt/apt.conf.d/proxy.conf
 ```
 ```bash
 sudo apt-get install snmpd snmp snmp-mibs-downloader snmptrapd
