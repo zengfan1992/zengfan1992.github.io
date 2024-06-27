@@ -75,3 +75,36 @@ input('按任意键结束')
 ```bash
 docker run -d -p 9092:9092 -e LISTENERS=PLAINTEXT://0.0.0.0:9092 apache/kafka
 ```
+```bash
+#!/usr/bin/env bash
+DIR=$(dirname "${BASH_SOURCE[0]}")
+# logic
+result=$(
+  export user_id='a'
+  export password='b'
+  export resource_id='c'
+  bash "$DIR/get_token.sh"
+)
+status=$?
+if [ $status -ne 0 ]; then
+  echo "$result"
+  exit 1
+fi
+echo "$result"
+```
+```bash
+resource_id='c'
+res=$(curl 'https://baidu.com' -s -k -i -d '{
+  "auth": {
+    "scope": {
+      "project": {
+        "id": "'"$resource_id"'"
+      }
+    }
+  }
+}')
+token=$(echo "$res" | grep 'X-Subject-Token' | cut -d " " -f 2)
+expires_at=$(echo "$res" | grep -o '"expires_at":"[^"]*' | grep -o '[^"]*$')
+```
+#OpenApiKey
+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
